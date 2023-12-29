@@ -11,8 +11,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  BUILD_DATE: $(date +'%Y-%m-%d')  # Unix-based systems
-
 
 jobs:
   build:
@@ -23,6 +21,11 @@ jobs:
       packages: write
 
     steps:
+      # set env var for BUILD_DATE used tp tag
+      - name: set env
+        run: echo "::set-env name=BUILD_DATE::$(date +'%Y-%m-%d')"
+
+      # git clone repo to vm
       - name: Checkout repository
         uses: actions/checkout@v4
 
