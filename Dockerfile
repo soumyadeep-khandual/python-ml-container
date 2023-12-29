@@ -35,7 +35,6 @@ RUN pip install --no-cache-dir \
 WORKDIR /workspace
 
 # expose port for jupyer
-ENTRYPOINT ["bash"]
-CMD ["jupyter lab --notebook-dir=/workspace --ip 0.0.0.0 --no-browser --allow-root"]
+CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/tf --ip 0.0.0.0 --no-browser --allow-root"]
 EXPOSE 8888
 
