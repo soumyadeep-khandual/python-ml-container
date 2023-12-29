@@ -57,3 +57,4 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.BUILD_DATE }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64
