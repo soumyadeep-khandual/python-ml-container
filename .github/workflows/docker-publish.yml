@@ -67,7 +67,7 @@ jobs:
       - name: Delete old images
         uses: snok/container-retention-policy@v2
         with:
-          image-names: ghcr.io/${{ github.repository }}
+          image-names: python-ml-container #${{ github.repository }}
           cut-off: Two hours ago UTC
           keep-at-least: 5
           account-type: personal
