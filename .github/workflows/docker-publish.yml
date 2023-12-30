@@ -61,15 +61,12 @@ jobs:
           provenance: false
   
   clean-ghcr:
-    name: Delete old unused container images
+    name: Delete old images
     runs-on: ubuntu-latest
     steps:
       - name: Delete old images
-        uses: snok/container-retention-policy@v2
-        with:
-          image-names: python-ml-container #${{ github.repository }}
-          cut-off: Two hours ago UTC
-          keep-at-least: 1
-          account-type: personal
-          token: ${{ secrets.GITHUB_TOKEN }}
-          token-type: github-token
+        uses: actions/delete-package-versions@v4
+        with: 
+          package-name: 'python-ml-container'
+          package-type: 'container'
+          min-versions-to-keep: 5
