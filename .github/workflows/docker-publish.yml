@@ -59,3 +59,17 @@ jobs:
           cache-to: type=gha,mode=max
           # platforms: linux/amd64
           provenance: false
+  
+  clean-ghcr:
+    name: Delete old unused container images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old images
+        uses: snok/container-retention-policy@v2
+        with:
+          image-names: ${{ github.repository }}
+          cut-off: Two hours ago UTC
+          keep-at-least: 5
+          account-type: personal
+          token: ${{ secrets.GITHUB_TOKEN }}
+          token-type: github-token
