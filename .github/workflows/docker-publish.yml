@@ -69,7 +69,7 @@ jobs:
         with:
           image-names: python-ml-container #${{ github.repository }}
           cut-off: Two hours ago UTC
-          keep-at-least: 5
+          keep-at-least: 1
           account-type: personal
           token: ${{ secrets.GITHUB_TOKEN }}
           token-type: github-token
