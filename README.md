@@ -2,7 +2,9 @@
 
 # python-ml-container
 An OCI Container that packages tensorflow and pytorch (with cuda support) along with few frequently used python packages for machine learning.
-
+```
+docker pull ghcr.io/soumyadeep-khandual/python-ml-container:latest
+```
 additional packages installed:
 - lightgbm xgboost
 - transformers nltk spacy
