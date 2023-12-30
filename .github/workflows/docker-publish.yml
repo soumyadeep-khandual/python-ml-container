@@ -65,16 +65,4 @@ jobs:
         with: 
           package-name: 'python-ml-container'
           package-type: 'container'
-          min-versions-to-keep: 2
-          delete-only-untagged-versions: 'true'
-  
-  # clean-ghcr:
-  #   name: Delete old images
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Delete old images
-  #       uses: actions/delete-package-versions@v4
-  #       with: 
-  #         package-name: 'python-ml-container'
-  #         package-type: 'container'
-  #         min-versions-to-keep: 5
+          min-versions-to-keep: 5
